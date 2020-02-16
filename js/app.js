@@ -152,14 +152,7 @@ async function calculateIsoline() {
       hourFilter.hideData();
    }
 
-   const example_json_gems = 
-const rawResponse = await fetch('https://hiddengemsapp.herokuapp.com/gems/3', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
+   const example_json_gems = {
       "data": [ 
         //37.7643067,-122.4049898
         //37.7646459,-122.4122854
@@ -181,7 +174,14 @@ const rawResponse = await fetch('https://hiddengemsapp.herokuapp.com/gems/3', {
           "lng": -122.4206818
         }
       ]
-    })}
+    }
+const rawResponse = await fetch('https://hiddengemsapp.herokuapp.com/gems/3', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(example_json_gems)}
   );
   //wait for the server to process
   const content = await rawResponse.json();
@@ -193,6 +193,7 @@ const rawResponse = await fetch('https://hiddengemsapp.herokuapp.com/gems/3', {
     for(var i = 0; i<content.data.length;i++){
       addGem(map,content.data[i].lat, content.data[i].lng);
     }
+   
 }
 calculateIsoline();  
 
