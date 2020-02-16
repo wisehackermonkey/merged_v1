@@ -48,6 +48,25 @@ function addGem(map,x,y){
  // }
 
 }
+
+function addEmoji(map,x,y){
+  var svgMarkup = '<svg  width="24" height="24" xmlns="http://www.w3.org/2000/svg">' +
+  '<rect stroke="transparent" fill="${FILL}" x="1" y="1" width="22" height="22" />' +
+  '<text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" ' +
+  'text-anchor="middle" fill="${STROKE}" >❌</text></svg>';
+  //for(var i = 0; i < points.length; i++){
+  
+  
+  // Add the first marker
+  var bearsIcon = new H.map.Icon(
+    svgMarkup.replace('${FILL}', 'transparent').replace('${STROKE}', 'red')),
+    bearsMarker = new H.map.Marker({lat:x, lng: y},
+      {icon: bearsIcon});
+  
+  map.addObject(bearsMarker);
+ // }
+
+}
 function desplayGems(map,locations){
   for(var i = 0; i < locations.length; i++){
    addGem(map,locations[i][0], locations[i][1]);

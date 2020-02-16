@@ -151,6 +151,8 @@ async function calculateIsoline() {
    } else {
       hourFilter.hideData();
    }
+
+   const example_json_gems = 
 const rawResponse = await fetch('https://hiddengemsapp.herokuapp.com/gems/3', {
     method: 'POST',
     headers: {
